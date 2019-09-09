@@ -12,30 +12,38 @@
     <!--AJAX reference-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
     <!--Google Fonts referene-->
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|News+Cycle|Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|News+Cycle|Shadows+Into+Light&display=swap"
+        rel="stylesheet">
 
     <style>
         hr {
-        border-top: 1px dashed #f95759;
-       }
-       .btn {
-           background-color: #f95759;
-       }
-       .btn:hover {
-            background-color: #E4D5D3; 
+            border-top: 1px dashed #f95759;
+        }
+
+        .btn {
+            background-color: #f95759;
+        }
+
+        .btn:hover {
+            background-color: #E4D5D3;
             color: #f95759;
-       }
+        }
+
         h5 {
-           color:#505759;
-       }
-       h2, h3, h4, h5 {
-        font-family: 'News Cycle', sans-serif;
-       }
+            color: #505759;
+        }
+
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'News Cycle', sans-serif;
+        }
     </style>
 </head>
 
 <body>
-    
+
     <div class=container>
         <br>
         <h2>QUESTIONS</h2>
@@ -299,7 +307,7 @@
                 <ul class="chosen-results"></ul>
             </div>
         </div>
-    
+
         <br>
         <!--Submit Button-->
         <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Submit</button>
@@ -338,7 +346,46 @@
 
     <!--Logic-->
     <script>
-        
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+
+            function validateSelection() {
+                var isValid = true;
+                $(".form-control").each(function () {
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+                $(".chosen-select").each(function () {
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+                return isValid;
+
+            }
+
+            if (validateSelection()) {
+                var userData = {
+                    name: $("#name").val(),
+                    photo: $("#photo").val(),
+                    scores: [
+                        $("#q1").val(),
+                        $("#q2").val(),
+                        $("#q3").val(),
+                        $("#q4").val(),
+                        $("#q5").val(),
+                        $("#q6").val(),
+                        $("#q7").val(),
+                        $("#q8").val(),
+                        $("#q9").val(),
+                        $("#q10").val(),
+                    ]
+                };
+
+
+            }
+        })  
     </script>
 </body>
 
