@@ -1,0 +1,25 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "// html (for survey ) // javascript is going to get response (onclick) // you have an array with 10 values // you ajax call to the rout ( method post, url /api/friends)/ data the array // in the survey.html $.post(\"/api/friends\", surveyresults, function(data){// built the modal with the response thaat is comming from the server})",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marinemekhakyan/FriendFinder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marinemekhakyan/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/marinemekhakyan/FriendFinder#readme"
+}
