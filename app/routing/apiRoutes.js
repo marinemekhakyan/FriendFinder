@@ -24,7 +24,7 @@ module.exports = function(app){
                 minDif = dif;
             }
         
-        }
+         }
         res.json(bestMatch);
-    })
+    });
 }
