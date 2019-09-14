@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Survey</title>
-    <!--Bootstrap reference-->
+    <!-- Bootstrap reference -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Google Fonts referene-->
@@ -14,11 +14,30 @@
         rel="stylesheet">
     <!--JQuery Reference-->
      <script src="https://code.jquery.com/jquery.js"></script>
+     <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 
+  <!-- jQuery Modal -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /> -->
+
+
+<!-- we're not sure below -->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script> -->
 
     <style>
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
         hr {
             border-top: 1px dashed #f95759;
         }
@@ -329,7 +348,7 @@
 
     </div>
     <!-- Modal-->
-    <div id="results-modal" class="modal fade" role="dialog">
+    <div class="modal hide" role="dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">x</button>
@@ -380,33 +399,36 @@
                     photo: $("#photo").val().trim(),
                     scores: [
                         $("#q1").val(),
-                        $("#q2").val(),
-                        $("#q3").val(),
-                        $("#q4").val(),
-                        $("#q5").val(),
-                        $("#q6").val(),
-                        $("#q7").val(),
-                        $("#q8").val(),
-                        $("#q9").val(),
-                        $("#q10").val()
+                        // $("#q2").val(),
+                        // $("#q3").val(),
+                        // $("#q4").val(),
+                        // $("#q5").val(),
+                        // $("#q6").val(),
+                        // $("#q7").val(),
+                        // $("#q8").val(),
+                        // $("#q9").val(),
+                        // $("#q10").val()
                     ]
                 };
 
-                $.post({
+                $.ajax({
                     url: "/api/friends",
                     type: "POST",
                     data: JSON.stringify(userData),
                     contentType: "application/json", 
-                    complete: function(data) {
-
-
-                        $("#match-name").text(data.name);
-                        $("#match-img").attr("src", data.photo);
+                    complete: function(httpResponse) {
+                        httpResponse.body;
+                        // console.log(data);
 
                         // Show the modal with the best match
-                        $("#results-modal").modal("toggle");
-
+                        // $("#results-modal").modal("toggle");
                     }
+                    
+                }).then(function(data){
+                    console.log(data);
+                    $(".modal").removeClass("hide").addClass("show");
+                    $("#match-name").text(data.bestMatch.name);
+                    $("#match-img").attr("src", data.bestMatch.photo);
                 });
             }  else {
                 alert("Please fill out all fields before submitting!");
