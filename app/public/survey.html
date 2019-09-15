@@ -20,7 +20,7 @@
     <style>
         #match-img {
             width: 350px;
-            height: 350px;
+            height: 250px;
         }
 
         .hide {
@@ -394,15 +394,15 @@
                     photo: $("#photo").val().trim(),
                     scores: [
                         $("#q1").val(),
-                        $("#q2").val(),
-                        $("#q3").val(),
-                        $("#q4").val(),
-                        $("#q5").val(),
-                        $("#q6").val(),
-                        $("#q7").val(),
-                        $("#q8").val(),
-                        $("#q9").val(),
-                        $("#q10").val()
+                        // $("#q2").val(),
+                        // $("#q3").val(),
+                        // $("#q4").val(),
+                        // $("#q5").val(),
+                        // $("#q6").val(),
+                        // $("#q7").val(),
+                        // $("#q8").val(),
+                        // $("#q9").val(),
+                        // $("#q10").val()
                     ]
                 };
 
@@ -426,6 +426,8 @@
             }
         });
 
+
+        //function for clicking anywhere outside of modal to close it
         var modal = document.getElementById('modalId');
 
         window.onclick = function (event) {
