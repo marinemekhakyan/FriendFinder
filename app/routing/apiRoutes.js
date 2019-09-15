@@ -25,7 +25,7 @@ module.exports = function(app){
                 dif +=  Math.abs(friends[i].scores[j] - surveyResult[j]);
             }
             if ( i === 0 || dif < minDif) {
-                responseData.bestMatch = friends[i]; // [friends[i].name, friends[i].photo];
+                responseData.bestMatch = friends[i];
                 minDif = dif; 
             }
         
