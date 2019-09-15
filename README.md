@@ -11,4 +11,4 @@
  - AJAX
  - Path
 
- Take the survey https://radiant-river-23732.herokuapp.com/
+ Take the survey https://marines-friendfinder-app.herokuapp.com/
