@@ -13,4 +13,4 @@
 
  Take the survey https://marines-friendfinder-app.herokuapp.com/
  
- Updated portfolio https://marinemekhakyan.github.io/i-portfolio/work-2.html
+ ![](https://github.com/marinemekhakyan/FriendFinder/blob/master/app/public/readme-screenshot.gif?raw=true)
